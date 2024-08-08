@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HTML5 | Play with data attibutes and DOM forms Collection</title> 
+	
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<script src="jquery-4.0.0-beta.js"></script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script>
+			const form = document.getElementById("form");
+			const log = document.getElementById("log");
+			form.addEventListener("submit", logSubmit);
+
+			
+			// put your jQuery code here.
+			$(document).ready(function() {
+				$(this).data("id") 
+			});
+
+			function logSubmit(event) {
+				//const listSecBook = inputsPersonal.getElementById("conquest_of_self").value;
+				//showDetails(listSecBook);
+			  	log.textContent = "Form Submitted! Timestamp: ${event.timeStamp}";
+  				event.preventDefault();
+			}
+
+            function showDetails(book) {
+				let bookauthor = book.getAttribute("data-book-author");
+				alert(book.innerHTML + " is written by " + bookauthor + ".");
+            }
+
+            function processAddressForms() { 
+      
+                // Count number of forms 
+                let collection = document.forms.length; 
+                //document.querySelector(".count").innerHTML  = collection; 
+
+				const inputsPersonal = document.getElementById("personal-info").elements;
+				const inputsHome = document.getElementById("home-info").elements;
+				const inputDelivery = inputsPersonal.getElementById("delivery-info").elements;
+
+				const inputFirstname = inputsPersonal.getElementById("firstname").value;
+
+				const inputDeliveryAddress = inputDelivery.getElementById("deliveryaddress").value;
+
+				// Disable delivery address
+				inputDeliveryAddress.setAttribute("disabled", "");
+
+				//if (inputsPersonal[i].nodeName === "INPUT" && inputs[i].type === "text") {
+					// Update text input
+					//inputs[i].value.toLocaleUpperCase();
+				//}
+
+            }  
+
+
+	</script>
+
+
+	
+</head>
+
+<body>
+	<h2>Installing Fluent UI React v9</h2>
+	<div>npm install @fluentui/react-components:</div>
+	<div>yarn add @fluentui/react-components
+	</div>
+
+<!-- 	<div>
+		import {
+			FluentProvider,
+			webLightTheme,
+			Button
+	  } from "@fluentui/react-components";
+	  
+	  export default function App() {
+			return (
+				<FluentProvider theme={webLightTheme}>
+					<Button appearance="primary">Hello Fluent UI React</Button>
+				</FluentProvider>
+			);
+	  }
+	</div> -->
+	<h2>Fluent UI links</h2>
+	
+	<span>  </span>
+	
+
+
+	  
+	<div class="container">
+		<div class="row">
+		  <div class="col-sm">
+			<figure class="figure">
+				<a id="myLink1" title="Click to do something" href="https://learn.microsoft.com/en-us/semantic-kernel/get-started/quick-start-guide?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=Csharp" onclick="MyFunction();return false;"></a>
+					<img src="images/ToWord.png" class="figure-img img-fluid rounded" alt="...">
+				</a>
+				<figcaption class="figure-caption text-end">Word automation.</figcaption>
+			  </figure>
+		  </div>
+		  <div class="col-sm">
+			
+			<figure class="figure" onclick="">
+				<a id="myLink2" title="Click to do something" href="https://learn.microsoft.com/en-us/semantic-kernel/get-started/quick-start-guide?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=Csharp" onclick="MyFunction();return false;">
+					<img src="images/ToCheck.png" class="figure-img img-fluid rounded" alt="...">
+				</a>
+				<figcaption class="figure-caption text-end">Semantic Kernel.</figcaption>
+			</figure>
+		  </div>
+		  
+		  <div class="col-sm">
+			<figure class="figure">
+				<img src="images/ToCopy.png" class="figure-img img-fluid rounded" alt="Copy" >
+				<figcaption class="figure-caption text-end">Copy.</figcaption>
+			</figure>
+			  
+			  	<a href="https://learn.microsoft.com/en-us/semantic-kernel/get-started/quick-start-guide?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=Csharp">
+					semantic-kernel
+				</a>
+		  </div>
+		</div>
+	  </div>
+	
+
+
+
+
+	<form id="personal-info"> 
+            <h3>Personal Information Area</h3> 
+			<label for="firstname">First name:</label>
+            <input type="text" id="firstname"> 
+        </form> 
+
+	<form id="home-info"> 
+        	<h3>Home Address Information Area</h3> 
+			<label for="homeaddress">Address:</label>
+	        <input type="text" id="homeaddress"> 
+        </form> 
+
+	<form id="delivery-info"> 
+        	<h3>Delivery Address Information Area</h3> 
+			<label for="deliveryaddress">Delivery:</label>
+	        <input type="text" id="deliveryaddress"> 
+    </form> 
+
+	<div><button onclick="processAddressForms()">Process Address Forms</button></div>
+
+	<div><input type="submit" value="Process Addresses"  class="btn btn-address" onclick="processAddressForms()">Submit</button></div>
+
+	<h2>Book forms</h2>
+	<div>Click on the book name to know author's name:</div>
+
+	<ul>
+		<li onclick="showDetails(this)"
+			id="gitanjali"
+			data-book-author="Rabindra Nath Tagore">
+			Gitanjali
+		</li>
+
+		<li onclick="showDetails(this)"
+			id="conquest_of_self"
+			data-book-author="Mahatma Gandhi">
+			Conquest of Self
+		</li>
+
+		<li onclick="showDetails(this)"
+			id="broken_wings"
+			data-book-author="Sarojini Naidu">
+			Broken Wings
+		</li>
+	</ul>
+
+	<p id="log"></p>
+
+	<a data-id="123">link to item 123</a>
+
+</body>
+
+</html>

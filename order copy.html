@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Form</title> 
+	
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/@octokit/rest@latest"></script>
+	<!-- <script src="MOD.JS" type="module">import {myModule} from "MOD.js";</script> -->
+
+	<script type="module">
+		import { myModule } from "./MOD.js";
+		import { dd } from "MOD.js";
+		window.dd=dd;
+	</script>
+
+	<script>
+
+		
+
+		function callIt() {
+			//dd();
+			myModule.publicFunction();
+			console.log('caaalllled');
+		}
+		
+		function Octa() {
+			dd();
+			myModule.publicFunction();
+			console.log('caaalllled');
+		}
+
+
+			//const inputsPersonal = document.getElementById("personal-info").elements;
+			const form = document.getElementById("form");
+			const log = document.getElementById("log");
+			form.addEventListener("submit", logSubmit);
+
+			
+			// put your jQuery code here.
+			$(document).ready(function() {
+				$(this).data("id") 
+			});
+
+			function logSubmit(event) {
+				//const listSecBook = inputsPersonal.getElementById("conquest_of_self").value;
+				//showDetails(listSecBook);
+			  	log.textContent = "Form Submitted! Timestamp: ${event.timeStamp}";
+  				event.preventDefault();
+			}
+
+            // function showDetails(book) {
+			// 	let bookauthor = book.getAttribute("data-book-author");
+			// 	alert(book.innerHTML + " is written by " + bookauthor + ".");
+            // }
+
+            function processAddressForms() { 
+      
+                // Count number of forms 
+                //let collection = document.forms.length; 
+
+				const inputsPersonal = document.getElementById("personal-info").elements;
+				const inputDelivery = inputsPersonal.getElementById("delivery-info").elements;
+
+				const inputFirstname = inputsPersonal.getElementById("firstname").value;
+
+
+
+				// Disable delivery address
+				inputDeliveryAddress.setAttribute("disabled", "");
+
+				//if (inputsPersonal[i].nodeName === "INPUT" && inputs[i].type === "text") {
+					// Update text input
+					//inputs[i].value.toLocaleUpperCase();
+				//}
+
+            }  
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			$('#btnX').click(function(){
+				callIt();
+				console.log('callIt');
+			});
+		});
+	</script>
+	
+</head>
+<body>
+
+	<form id="personal-info"> 
+		<h3>Personal Information Area</h3> 
+		<label for="firstname">First name:</label>
+		<input type="text" id="firstname"> 
+		<button type="button" id="pibtn" onclick="Octa();">Process</button>
+	</form> 
+
+<p id="log"></p>
+
+<a data-id="123">link to item 123</a>
+<button type="button" id="btnX" ">XX</button>
+
+
+	<div class="container">
+		<div class="row">
+		  <div class="col-sm">
+
+		  </div>
+
+		  
+		  <div class="col-sm">
+
+		  </div>
+		</div>
+	  </div>
+	
+
+
+</body>
+
+</html>
