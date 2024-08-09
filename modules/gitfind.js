@@ -3,7 +3,7 @@ import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
 
 
   async function searchGitHub(searchText, repo = "") {
-    const token = "";
+    const token = "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";
 
     const owner = "ristoikonen";
     const result = undefined;
