@@ -35,7 +35,8 @@ function create(id, parent, width, height) {
   }
 
   async function useOcta() {
-    const token = "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";
+    const token = "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";
+    //"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";
 
     const owner = "ristoikonen";
     const repo = "Prod";
@@ -51,7 +52,8 @@ function create(id, parent, width, height) {
         try {
             
             const octokit = new Octokit({ 
-                auth: token
+                auth: token,
+                //username: owner,
                 });
             
             // const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -69,8 +71,8 @@ function create(id, parent, width, height) {
             // https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#constructing-a-search-query
             // https://docs.github.com/en/search-github/searching-on-github/searching-code
 
-            //const query = 'h)';
-            const query = "q=function+in:file+language:js+repo:ristoikonen/Prod";
+            const query = "q=h2+in:file+language:js+repo:ristoikonen/Prod";
+
             //const query = "q=h2";
             // const response = await octokit.rest.search.code?q=repo:octocat/Spoon-Knife+css({
             //       q: query
@@ -80,11 +82,13 @@ function create(id, parent, width, height) {
             
             //const q = "function+in:file+language:js+repo:ristoikonen/prod";
             //const q = "function+repo:ristoikonen/prod";
-            const q = "function+user:ristoikonen+path:/";
 
-            const response =  await octokit.rest.search.code({
-                    q,
-                  });
+            const q = "h2+user:ristoikonen+path:/";
+                        
+
+            // const response =  await octokit.rest.search.code({
+            //         q,
+            //       });
 
                   const result =  await octokit.rest.search.code({
                     q,
@@ -106,10 +110,11 @@ function create(id, parent, width, height) {
 
                             if (!item.html_url.endsWith(".html")) {
 
-                                const text = await response.text();
-                                console.log(text);
+                                //const text = await response.text();
+                                //console.log(text);
+                                //parsehtml(text);
+                                //const documents = YAML.parseAllDocuments(text);
 
-                                const documents = YAML.parseAllDocuments(text);
                                 // if (documents && documents.length) {
                                 //     for (const i in documents) {
                                 //         const document = documents[i];
@@ -136,7 +141,7 @@ function create(id, parent, width, height) {
                     //currentPage++;
                 }
 
-            const response2 = await octokit.request("GET /search/repositories?q=div&per_page=10", {
+            const response = await octokit.request("GET /search/repositories?q=div&per_page=10", {
                 owner: owner,
                 repo: repo,
                 });
