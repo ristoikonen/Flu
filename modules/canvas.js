@@ -35,8 +35,7 @@ function create(id, parent, width, height) {
   }
 
   async function useOcta() {
-    const token = "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";
-    //"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";
+    const token = "";
 
     const owner = "ristoikonen";
     const repo = "Prod";
