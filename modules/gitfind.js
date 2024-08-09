@@ -2,12 +2,14 @@
 import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
 
 async function searchGitHub(searchText, repo = "") {
-    const token = "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";
+
+    const token = "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";
 
     const owner = "ristoikonen";
+    var q =  "";
     const result = undefined;
 
-    console.log('Searching GitHub for ' + searchText);
+    console.log('Searching GitHub for ' + searchText + ', in repo ' + repo);
 
     try {
         
@@ -17,13 +19,17 @@ async function searchGitHub(searchText, repo = "") {
         
         if (repo === "")
         {
-            const q = "q=:{searchtext}+in:file+language:js+repo:"  + owner ;
+            q = `${searchText}+in:file+language:js+repo:v`  + owner ;
         }
         else {
-            const q = "q=:{searchtext}+in:file+language:js+repo:"  + owner + "/" + repo;
+            q = `${searchText}+in:file+language:js+repo:` + owner + `/` + repo;
         }
         
-        const q = "h2+user:ristoikonen+path:/";
+        
+        //q = "h2+user:ristoikonen+path:/";
+
+        //q = `${searchText}+in:file+repo:ristoikonen/Prod`;
+        console.log(q);
 
 
         const result =  await octokit.rest.search.code({

@@ -13,5 +13,5 @@ import { searchGitHub} from './modules/gitfind.js';
 // // Use the default
 // let square2 = randomSquare(myCanvas.ctx);
 
-searchGitHub("h2");
+searchGitHub("function","Prod");
 //useOcta();
